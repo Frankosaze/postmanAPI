@@ -1,0 +1,357 @@
+{
+	"info": {
+		"_postman_id": "56e30059-787d-4e13-b4ac-39dee72afe90",
+		"name": "API Testing Portfolio – Countries & User mgt.",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "49840362",
+		"_collection_link": "https://frankosazei-5891605.postman.co/workspace/05a10b58-a650-4e60-8df5-4b40d3f892a6/collection/49840362-56e30059-787d-4e13-b4ac-39dee72afe90?action=share&source=collection_link&creator=49840362"
+	},
+	"item": [
+		{
+			"name": "Country Data",
+			"item": [
+				{
+					"name": "All Countries",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {},
+								"requests": {}
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", () => {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Response is an array\", () => {\r",
+									"    pm.expect(pm.response.json()).to.be.an(\"array\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Each country must have name, capital, population and region\", () => {\r",
+									"    const data = pm.response.json();\r",
+									"    data.forEach((item) => {\r",
+									"        pm.expect(item).to.have.property(\"name\");\r",
+									"        pm.expect(item).to.have.property(\"region\");\r",
+									"    });\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {},
+								"requests": {}
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrlCountries}}/all?fields=name,capital,population,region",
+							"host": [
+								"{{baseUrlCountries}}"
+							],
+							"path": [
+								"all"
+							],
+							"query": [
+								{
+									"key": "fields",
+									"value": "name,capital,population,region"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Countries by Region",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", () => {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Response is an array\", () => {\r",
+									"    pm.expect(pm.response.json()).to.be.an(\"array\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Each country must have name and population\", () => {\r",
+									"    const data = pm.response.json();\r",
+									"    data.forEach((item) => {\r",
+									"        pm.expect(item).to.have.property(\"name\");\r",
+									"        pm.expect(item).to.have.property(\"region\");\r",
+									"    });\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {},
+								"requests": {}
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrlCountries}}/region/africa?fields=region,name,population",
+							"host": [
+								"{{baseUrlCountries}}"
+							],
+							"path": [
+								"region",
+								"africa"
+							],
+							"query": [
+								{
+									"key": "fields",
+									"value": "region,name,population"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Countries by Name",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", () => {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Response is an array\", () => {\r",
+									"    pm.expect(pm.response.json()).to.be.an(\"array\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Country must have boarder, langauages, translation, and subregion,\", () => {\r",
+									"    const data = pm.response.json();\r",
+									"    data.forEach((item) => {\r",
+									"        pm.expect(item).to.have.property(\"name\");\r",
+									"        pm.expect(item).to.have.property(\"region\");\r",
+									"    });\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {},
+								"requests": {}
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrlCountries}}/name/ghana",
+							"host": [
+								"{{baseUrlCountries}}"
+							],
+							"path": [
+								"name",
+								"ghana"
+							],
+							"query": [
+								{
+									"key": "fields",
+									"value": "name,capital,flags",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "User Management",
+			"item": [
+				{
+					"name": "User Creation",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 201\", () => {\r",
+									"    pm.response.to.have.status(201);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Response contains ID and timestamp\", () => {\r",
+									"    const res = pm.response.json();\r",
+									"    pm.expect(res).to.have.property(\"id\");\r",
+									"    pm.expect(res).to.have.property(\"createdAt\");\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {},
+								"requests": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "x-api-key",
+								"value": "reqres-free-v1",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": " {\r\n    \"name\": \"Your Software Company\",\r\n  \"job\": \"QA Engineer\",\r\n  \"job type\": \"Full Time\",\r\n  \"location\": \"Remote\"\r\n }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrlUsers}}/users\n",
+							"host": [
+								"{{baseUrlUsers}}"
+							],
+							"path": [
+								"users\n"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "User Update",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", () => {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Job was successfully updated\", () => {\r",
+									"    const res = pm.response.json();\r",
+									"    pm.expect(res.job).to.eql(\"Software Test Manager\");\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {},
+								"requests": {}
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "x-api-key",
+								"value": "reqres-free-v1",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{  \r\n    \"name\": \"Your Software Company\",\r\n  \"job\": \"Software Test Manager\",\r\n  \"job type\": \"Contract\",\r\n  \"location\": \"Remote\"\r\n  }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrlUsers}}/users/\n",
+							"host": [
+								"{{baseUrlUsers}}"
+							],
+							"path": [
+								"users",
+								"\n"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Partially Update User",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", () => {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Response contains updated job\", () => {\r",
+									"    const res = pm.response.json();\r",
+									"    pm.expect(res).to.have.property(\"job\");\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {},
+								"requests": {}
+							}
+						}
+					],
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "x-api-key",
+								"value": "reqres-free-v1",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"job\": \"Lead Tester\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrlUsers}}/users/2\n",
+							"host": [
+								"{{baseUrlUsers}}"
+							],
+							"path": [
+								"users",
+								"2\n"
+							],
+							"query": [
+								{
+									"key": "",
+									"value": "",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
