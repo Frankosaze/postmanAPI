@@ -1,0 +1,15 @@
+pm.test("Status code is 200", () => {
+    pm.response.to.have.status(200);
+});
+
+pm.test("Response is an array", () => {
+    pm.expect(pm.response.json()).to.be.an("array");
+});
+
+pm.test("Country must have boarder, langauages, translation, and subregion,", () => {
+    const data = pm.response.json();
+    data.forEach((item) => {
+        pm.expect(item).to.have.property("name");
+        pm.expect(item).to.have.property("region");
+    });
+});
