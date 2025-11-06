@@ -16,7 +16,6 @@ The goal of this work is to demonstrate:
 | **GET Requests** | Validate successful response codes and correct JSON fields |
 | **POST Requests** | Confirm new data is created and returned with the correct structure |
 | **PUT / PATCH Requests** | Verify updates are applied correctly and reflected in subsequent responses |
-| **DELETE Requests** | Ensure resources are removed successfully and return expected messages |
 
 ---
 
@@ -26,15 +25,3 @@ The goal of this work is to demonstrate:
 - **Environment Variables** for reusable values
 
 ---
-
-## Example Assertion
-
-```javascript
-pm.test("Response status is 200", () => {
-  pm.response.to.have.status(200);
-});
-
-pm.test("Response returns valid data object", () => {
-  const json = pm.response.json();
-  pm.expect(json).to.be.an("object");
-});
