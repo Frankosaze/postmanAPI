@@ -1,6 +1,10 @@
+[![API Test Suite](https://github.com/Frankosaze/postmanAPI/actions/workflows/api-tests.yml/badge.svg)](https://github.com/Frankosaze/postmanAPI/actions/workflows/api-tests.yml)
+
 # API Testing Portfolio – Postman Collection
 
-This project shows practical API testing using **Postman**, focused on verifying data retrieval, creation, update, and deletion of resources through RESTful endpoints.
+This project contains an API testing suite executed in **Postman** and automated via **GitHub Actions + Newman**. The test suite validates Create, Read, Update, and Delete (CRUD) operations across multiple REST endpoints, ensuring correct response codes, data integrity, and payload structure consistency.
+
+The CI pipeline runs automatically on every commit and displays real-time test results with the status badge above.
 
 The goal of this work is to demonstrate:
 - Ability to design and organize test flows
