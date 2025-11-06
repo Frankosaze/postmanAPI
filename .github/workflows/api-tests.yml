@@ -19,6 +19,11 @@ jobs:
 
     - name: Install Newman
       run: npm install -g newman
-
-    - name: Run Postman Collection with Environment Variables
-      run: newman run "postman-api-testing.postman_collection.json" -e "postman-environment.json"
+    
+    - name: Run Postman Collection with Forced Variables
+      run: |
+        newman run "postman-api-testing.postman_collection.json" \
+        --env-var baseUrlCountries=https://restcountries.com/v3.1 \
+        --env-var baseUrlUsers=https://reqres.in/api \
+        --env-var baseurlcountries=https://restcountries.com/v3.1 \
+        --env-var baseurlusers=https://reqres.in/api
