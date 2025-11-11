@@ -34,5 +34,5 @@ The goal of this work is to demonstrate:
 
 **Frank Osaze**  
 Software QA / Test Engineer  
-GitHub: https://github.com/Frankosaze
+GitHub: https://github.com/Frankosaze  
 Email: frankosazei@gmail.com
