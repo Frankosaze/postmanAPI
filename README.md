@@ -13,7 +13,7 @@ The goal of this work is to demonstrate:
 
 ---
 
-## What This Test Suite Covers
+## 📁 What This Test Suite Covers
 
 | Test Area | Description |
 |----------|-------------|
@@ -23,9 +23,16 @@ The goal of this work is to demonstrate:
 
 ---
 
-## Tools Used
+## 🛠️ Tools Used
 - **Postman** for request execution & test management
 - **JavaScript Assertions** inside Postman Tests tab
 - **Environment Variables** for reusable values
 
 ---
+
+## 👨‍💻 Author
+
+**Frank Osaze**  
+Software QA / Test Engineer  
+GitHub: https://github.com/Frankosaze
+Email: frankosazei@gmail.com
