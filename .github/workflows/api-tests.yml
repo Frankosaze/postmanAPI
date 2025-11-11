@@ -24,6 +24,6 @@ jobs:
       run: |
         newman run "postman-api-testing.postman_collection.json" \
         --env-var baseUrlCountries=https://restcountries.com/v3.1 \
-        --env-var baseUrlUsers=https://reqres.in/api \
+        --env-var baseUrlers=https://reqres.in/api \
         --env-var baseurlcountries=https://restcountries.com/v3.1 \
-        --env-var baseurlusers=https://reqres.in/api
+        --env-var baseurlers=https://reqres.in/api
