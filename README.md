@@ -1,5 +1,8 @@
 [![API Test Suite](https://github.com/Frankosaze/postmanAPI/actions/workflows/api-tests.yml/badge.svg)](https://github.com/Frankosaze/postmanAPI/actions/workflows/api-tests.yml)
 
+![Postman](https://img.shields.io/badge/Postman-API%20Testing-ff6c37?logo=postman&logoColor=white)
+
+
 # API Testing Portfolio – Postman Collection
 
 This project contains an API testing suite executed in **Postman** and automated via **GitHub Actions + Newman**. The test suite validates Create, Read, Update, and Delete (CRUD) operations across multiple REST endpoints, ensuring correct response codes, data integrity, and payload structure consistency.
