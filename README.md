@@ -1,5 +1,4 @@
 [![API Test Suite](https://github.com/Frankosaze/postmanAPI/actions/workflows/api-tests.yml/badge.svg)](https://github.com/Frankosaze/postmanAPI/actions/workflows/api-tests.yml)
-
 ![Postman](https://img.shields.io/badge/Postman-API%20Testing-ff6c37?logo=postman&logoColor=white)
 
 
