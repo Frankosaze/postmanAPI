@@ -13,9 +13,8 @@ The goal of this work is to demonstrate:
 - Use of assertions to validate API responses
 - Consistent testing approach across multiple endpoint types
 
----
 
-## 📁 What This Test Suite Covers
+## What This Test Suite Covers
 
 | Test Area | Description |
 |----------|-------------|
@@ -23,16 +22,14 @@ The goal of this work is to demonstrate:
 | **POST Requests** | Confirm new data is created and returned with the correct structure |
 | **PUT / PATCH Requests** | Verify updates are applied correctly and reflected in subsequent responses |
 
----
 
-## 🛠️ Tools Used
+## Tools Used
 - **Postman** for request execution & test management
 - **JavaScript Assertions** inside Postman Tests tab
 - **Environment Variables** for reusable values
 
----
 
-## 👨‍💻 Author
+## Author
 
 **Frank Osaze**  
 Software QA / Test Engineer  
